@@ -22,9 +22,13 @@ function displayTemperature(response) {
     let windElement = document.querySelector("#wind").innerHTML = Math.round(response.data.wind.speed);
     let dateElement = document.querySelector("#date");
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
+    let iconElement = document.querySelector("#icon").setAttribute("src", `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    iconElement.setAttribute(
+        "alt", response.data.weather[0].description
+    )
 }
 
 let apiKey = "41653189222a9f622e0f370d2ef32efe";
-let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=new york&appid=41653189222a9f622e0f370d2ef32efe&units=metric";
+let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=New York&appid=41653189222a9f622e0f370d2ef32efe&units=metric";
 
 axios.get(apiUrl).then(displayTemperature);
