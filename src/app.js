@@ -15,7 +15,6 @@ function formatDate(timestamp) {
 }
 
 function displayTemperature(response) {
-    console.log(response.data);
     let temperatureElement = document.querySelector("#temperature").innerHTML = Math.round(response.data.main.temp);
     let cityElement = document.querySelector("#city").innerHTML = response.data.name;
     let descriptionElement = document.querySelector("#description").innerHTML = response.data.weather[0].description;
@@ -24,7 +23,6 @@ function displayTemperature(response) {
     let dateElement = document.querySelector("#date");
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
 }
-
 
 let apiKey = "41653189222a9f622e0f370d2ef32efe";
 let apiUrl = "https://api.openweathermap.org/data/2.5/weather?q=new york&appid=41653189222a9f622e0f370d2ef32efe&units=metric";
