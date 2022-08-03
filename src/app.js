@@ -11,7 +11,7 @@ function formatDate(timestamp) {
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     let day = days[now.getDay()];
 
-    return `${day} ${hours}:${minutes}`;
+    return ` ${day} ${hours}:${minutes}`;
 }
 
 function displayTemperature(response) {
@@ -77,3 +77,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 search(`New York`);
+
