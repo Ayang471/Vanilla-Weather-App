@@ -100,14 +100,6 @@ function handleSubmit(event) {
     search(cityInputElement.value);
 }
 
-function showPosition(position) {
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
-    let apiKey = `41653189222a9f622e0f370d2ef32efe`;
-    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=41653189222a9f622e0f370d2ef32efe&units=${units}`;
-    axios.get(apiUrl).then(displayTemperature);
-}
-
 
 function displayFahrenheitTemp(event) {
     event.preventDefault();
@@ -127,6 +119,15 @@ function displayCelsiusTemp(event) {
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
+function showPosition(position) {
+    console.log(position);
+    let latitude = position.coords.latitude;
+    let longitude = position.coords.longitude;
+    let apiKey = `41653189222a9f622e0f370d2ef32efe`;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=41653189222a9f622e0f370d2ef32efe&units=metric`;
+    axios.get(apiUrl).then(displayTemperature);
+}
+
 let celsiusTemperature = null;
 
 let form = document.querySelector(`#search-form`);
@@ -142,7 +143,6 @@ search(`San Jose`);
 
 
 navigator.geolocation.getCurrentPosition(showPosition);
-console.log(showPosition);
 
 
 function getCurrentLocation(event) {
@@ -150,5 +150,5 @@ function getCurrentLocation(event) {
     navigator.geolocation.getCurrentPosition(showPosition);
 }
 
-let currentLocation = document.querySelector("#current-location-btn")
+let currentLocation = document.querySelector("#current-location")
 currentLocation.addEventListener(`click`, getCurrentLocation);
