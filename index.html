@@ -17,7 +17,7 @@
     <title>Vanilla Weather App</title>
   </head>
   <body>
-    <div class="container col-6">
+    <div class="container col-6" id= "weather-forecast-app">
       <div class="weather-app-wrapper">
         <div class="weather-app">
             <div class="row">
@@ -26,16 +26,15 @@
               <input type="search" placeholder="Enter a city..." class="form-control" id ="city-input" autocomplete="off">
               </div>
               <div class="col-6">
-              <input type="submit" value="Search" class="btn btn-primary">
-              <input type="submit" value="📍 Current Location" name="current-location" class="btn btn-outline-primary" id="current-location-btn">
+              <input type="submit" value="Search" class="submit-btn" >
             </div>
             </form>
             </div>
           <div class="overview">
             <h1 id="city"></h1>
             <ul>
-              <li><span id="date"></span></li>
-              <li id="description">Cloudy</li>
+              <li class="date"><span id="date"></span></li>
+              <li id="description"></li>
             </ul>
           </div>
           <div class="row">
@@ -53,6 +52,11 @@
                     <a href="#"><span id="celsius-link" class="active">°C </span></a> | 
                     <a href="#"><span id="fahrenheit-link">°F </span></a>
                 </div></small>
+                <div class="descriptions">
+                  <ul>
+                    <li class="high-low"> H: <span id="high"></span>°   L: <span id="low"></span>°</li>
+                  </ul>
+                </div>
               </div>
             </div>
             <div class="col-6">
@@ -71,8 +75,8 @@
              <img src="" alt="icon" width="45px"
              />
              <div class="weather-forecast-temperature">
-             <span class = "weather-forecast-temperature-max"> 20° </span> 
-             <span class = "weather-forecast-temperature-min"> 18° </span>
+             <span class = "weather-forecast-temperature-max"> ° </span> 
+             <span class = "weather-forecast-temperature-min"> ° </span>
              </div>
            </div>
            </div>
